@@ -18,10 +18,7 @@ class ActivationLayer(nn.Module):
     def __init__(self, activation: str):
         super().__init__()
 
-        if activation == "relu":
-            self.activation = nn.ReLU()
-        else:
-            self.activation = nn.Tanh()
+        self.activation = nn.ReLU() if activation == "relu" else nn.Tanh()
 
     def forward(self, x):
         return self.activation(x)
