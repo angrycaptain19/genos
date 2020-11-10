@@ -169,11 +169,7 @@ def __locate(path: str) -> Union[type, Callable[..., Any]]:
             continue
         if module:
             break
-    if module:
-        obj = module
-    else:
-        obj = builtins
-
+    obj = module or builtins
     return __get_type(parts, n, obj, path)
 
 
